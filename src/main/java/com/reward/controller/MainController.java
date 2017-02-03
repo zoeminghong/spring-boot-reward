@@ -3,6 +3,8 @@ package com.reward.controller;
 import com.reward.dao.RewardShareDao;
 import com.reward.model.RewardShareDo;
 import com.reward.properties.GirlProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public class MainController {
+    Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @Value("${shareId}")
     private String shareId;
@@ -27,6 +30,7 @@ public class MainController {
         RewardShareDo rewardShareDo = new RewardShareDo();
         rewardShareDo.setId(shareId);
         rewardShareDo = rewardShareDao.getModel(rewardShareDo);
+        logger.info("获取成功{}",rewardShareDo.getCount());
         return rewardShareDo.getSceneId();
     }
 
