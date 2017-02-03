@@ -1,0 +1,19 @@
+server:
+  port: 8081
+girl:
+  age: 18
+  height: 175
+shareId: 0D1906BB641748B782E227FAE077FF60
+mybatis:
+  type-aliases-package: com.reward
+  config-locations: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+
+spring:
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://172.30.248.21:3306/trc_reward?characterEncoding=utf8
+      username: dev
+      password: DEVfunds@123

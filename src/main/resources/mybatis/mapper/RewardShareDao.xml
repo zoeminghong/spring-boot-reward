@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reward.dao.RewardShareDao">
+    <resultMap id="BaseResultMap" type="com.reward.model.RewardShareDo">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="sharer" property="sharer" jdbcType="VARCHAR"/>
+        <result column="sceneId" property="sceneId" jdbcType="VARCHAR"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+        <result column="shareDate" property="shareDate" jdbcType="TIMESTAMP"/>
+        <result column="createDate" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="updateDate" property="updateDate" jdbcType="TIMESTAMP"/>
+        <result column="version" property="version" jdbcType="BIGINT"/>
+        <result column="isdeleted" property="isdeleted" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, sharer, sceneId, count, shareDate, createDate, updateDate, version, isdeleted
+    </sql>
+
+    <select id="getModel" resultMap="BaseResultMap" parameterType="com.reward.model.RewardShareDo">
+        select
+        <include refid="Base_Column_List"/>
+        from reward_share
+        where 1=1
+        <if test="id !=null and id !=''">
+            AND id = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="sharer !=null and sharer !=''">
+            AND sharer = #{sharer,jdbcType=VARCHAR}
+        </if>
+        <if test="sceneId !=null and sceneId !=''">
+            AND sceneId = #{sceneId,jdbcType=VARCHAR}
+        </if>
+        limit 1
+    </select>
+</mapper>
