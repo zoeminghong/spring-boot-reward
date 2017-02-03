@@ -18,7 +18,7 @@ public class GirlApplicationTests {
     @Test
     public void getModel() {
         RewardShareDo rewardShareDo = new RewardShareDo();
-        rewardShareDo.setId("0D1906BB641748B782E227FAE077FF6");
+        rewardShareDo.setId("0D1906BB641748B782E227FAE077FF60");
         rewardShareDo = rewardShareDao.getModel(rewardShareDo);
         Assert.assertNotNull("为空", rewardShareDo.getSceneId());
     }

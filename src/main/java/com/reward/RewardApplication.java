@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.reward")
+@MapperScan("com.reward.dao")
 public class RewardApplication {
 
 	public static void main(String[] args) {

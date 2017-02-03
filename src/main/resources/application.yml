@@ -8,18 +8,30 @@ girl:
 shareId: 0D1906BB641748B782E227FAE077FF60
 
 mybatis:
-  type-aliases-package: com.reward
+  type-aliases-package: com.reward.dao
   config-locations: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
+#正式环境数据库
+#spring:
+#  datasource:
+#      driverClassName: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://172.30.248.21:3306/reward?characterEncoding=utf8
+#      username: dev
+#      password: DEV
+
+#使用h2数据库
 spring:
   datasource:
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://172.30.248.21:3306/trc_reward?characterEncoding=utf8
-      username: dev
-      password: DEVfunds@123
+      driverClassName: org.h2.Driver
+      schema: classpath:db.sql/create-db.sql
+      data: classpath:db.sql/insert-data.sql
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
 
+#可以自定义日志路径
 #logging.config=classpath:logback.xml
 #logging.path=/workspace/rock/jpa-test/log
-#logging:
-#  config: classpath:logback.xml
+
